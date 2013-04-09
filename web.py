@@ -1,6 +1,6 @@
 from os import environ
 
-from flask import Flask
+from flask import Flask, Response
 from twilio.rest import TwilioRestClient
 
 ACCOUNT_SID = environ.get('TWILIO_ACCOUNT_SID')
@@ -18,11 +18,11 @@ def index():
     client.sms.messages.create(to="+%s" % HOST_NUMBER,
                                from_="+%s" % TWILIO_NUMBER,
                                body="There is someone at the door")
-    return """
-        <Response>
-            <Say>Welcome to Django District. An escort will arrive in a moment.</Say>
-        </Response>
-    """
+    return Response("""
+            <Response>
+                <Say>Welcome to Django District. An escort will arrive in a moment.</Say>
+            </Response>
+        """, content_type='application/xml')
 
 
 if __name__ == '__main__':
