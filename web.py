@@ -15,10 +15,9 @@ app = Flask(__name__)
 def format_phone(s):
     if not s:
         return 'unknown'
-    if not s.startswith('+'):
-        return s
-    s = s[1:]
-    return "%s-%s-%s" % (s[1:4], s[4:7], s[7:])
+    if s.startswith('+'):
+        s = s[1:]
+    return "%s-%s-%s" % (s[0:3], s[3:6], s[6:])
 
 
 @app.route('/')
