@@ -20,7 +20,7 @@ def index():
                                body="There is someone at the door")
     return Response("""
             <Response>
-                <Say>Welcome to Django District. An escort will arrive in a moment.</Say>
+                <Say>Welcome to Jango District. Someone will be with you in a moment to let you in.</Say>
             </Response>
         """, content_type='application/xml')
 
