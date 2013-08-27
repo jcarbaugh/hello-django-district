@@ -35,7 +35,7 @@ def index():
 
     return Response("""
             <Response>
-                <Say>Welcome to jan-go District. Someone will be with you in a moment to let you in.</Say>
+                <Say>Welcome to Jenga District. Someone will be with you in a moment to let you in.</Say>
             </Response>
         """, content_type='application/xml')
 
