@@ -27,12 +27,15 @@ def index():
     message = "There is someone at the door: %s" % caller
 
     client = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN)
-    client.sms.messages.create(to="+%s" % HOST_NUMBER,
-                               from_="+%s" % TWILIO_NUMBER,
-                               body=message)
+
+    for number in HOST_NUMBER.split(','):
+        client.sms.messages.create(to="+%s" % number,
+                                   from_="+%s" % TWILIO_NUMBER,
+                                   body=message)
+
     return Response("""
             <Response>
-                <Say>Welcome to Jango District. Someone will be with you in a moment to let you in.</Say>
+                <Say>Welcome to Jan go District. Someone will be with you in a moment to let you in.</Say>
             </Response>
         """, content_type='application/xml')
 
